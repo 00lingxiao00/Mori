@@ -1,0 +1,22 @@
+[package]
+name = "mori"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/00lingxiao00/Mori"
+description = "A minimal macOS Markdown editor"
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.15"
+sha2 = "0.10"
+tempfile = "3"
+base64 = "0.21"
+
+# Preserve build-tool debug metadata: Xcode 27's linker rejects stripped proc-macro dylibs.
+[profile.release.build-override]
+debug = true
+strip = "none"

@@ -1,0 +1,30 @@
+name: 错误报告
+description: 报告可以复现的行为问题
+title: "[Bug] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Mori 版本
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 环境
+      placeholder: macOS 版本与 Apple Silicon 机型
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请写明实际结果与期望结果。
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: 最小样例或截图
+      description: 请先移除个人内容、凭据和文件路径。

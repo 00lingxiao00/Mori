@@ -1,0 +1,258 @@
+/* Adapted from the user's installed Typora theme: whitey. */
+:root {
+	font-size: 19px;
+}
+
+:root {
+	-webkit-font-smoothing: antialiased;
+}
+
+#editor .ProseMirror {
+	margin: auto;
+	background: #fefefe;
+	-webkit-font-smoothing: antialiased;
+}
+#editor .ProseMirror {
+	font-family: "Vollkorn", Palatino, Times;
+	color: #333;
+	line-height: 1.4;
+	text-align: justify;
+}
+
+#editor .ProseMirror {
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	line-height: 1.53;
+	padding-top: 40px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#editor .ProseMirror {
+		max-width: 1100px;
+	}
+}
+
+@media print {
+	:root {
+		font-size: 13px;
+	}
+}
+
+/* Typography
+-------------------------------------------------------- */
+
+#editor .ProseMirror>h1:first-child,
+#editor .ProseMirror h1 {
+	margin-top: 1.6em;
+	font-weight: normal;
+}
+
+#editor .ProseMirror h1 {
+	font-size:3em;
+}
+
+#editor .ProseMirror h2 {
+	margin-top:2em;
+	font-weight: normal;
+}
+
+#editor .ProseMirror h3 {
+	font-weight: normal;
+	font-style: italic;
+	margin-top: 3em;
+}
+
+#editor .ProseMirror h1,
+#editor .ProseMirror h2,
+#editor .ProseMirror h3{
+	text-align: center;
+}
+
+#editor .ProseMirror h2:after{
+	border-bottom: 1px solid #2f2f2f;
+    content: '';
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 1px;
+}
+
+#editor .ProseMirror h1+h2,
+#editor .ProseMirror h2+h3 {
+	margin-top: 0.83em;
+}
+
+#editor .ProseMirror p,
+#editor .ProseMirror .mathjax-block {
+	margin-top: 0;
+	-webkit-hypens: auto;
+	-moz-hypens: auto;
+	hyphens: auto;
+}
+#editor .ProseMirror ul {
+	list-style: square;
+	padding-left: 1.2em;
+}
+#editor .ProseMirror ol {
+	padding-left: 1.2em;
+}
+
+@media print {
+	#editor .ProseMirror ol {
+		padding-left: 40px;
+	}
+}
+
+#editor .ProseMirror blockquote {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 1px solid #ddd;
+}
+#editor .ProseMirror code,
+#editor .ProseMirror pre {
+	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+	font-size: .9em;
+	background: white;
+}
+#editor .ProseMirror .milkdown-code-block{
+	margin-left: 1em;
+	padding-left: 1em;
+	border: 1px solid #ddd;
+	padding-bottom: 8px;
+	padding-top: 6px;
+	margin-bottom: 1.5em;
+}
+
+#editor .ProseMirror a {
+	color: #2484c1;
+	text-decoration: none;
+}
+#editor .ProseMirror a:hover {
+	text-decoration: underline;
+}
+#editor .ProseMirror a img {
+	border: none;
+}
+#editor .ProseMirror h1 a,
+#editor .ProseMirror h1 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+#editor .ProseMirror hr {
+	color: #ddd;
+	height: 1px;
+	margin: 2em 0;
+	border-top: solid 1px #ddd;
+	border-bottom: none;
+	border-left: 0;
+	border-right: 0;
+}
+#editor .ProseMirror .ty-table-edit {
+	background: #ededed;
+    padding-top: 4px;
+}
+#editor .ProseMirror table {
+	margin-bottom: 1.333333rem
+}
+#editor .ProseMirror table th,
+#editor .ProseMirror table td {
+	padding: 8px;
+	line-height: 1.333333rem;
+	vertical-align: top;
+	border-top: 1px solid #ddd
+}
+#editor .ProseMirror table th {
+	font-weight: bold
+}
+#editor .ProseMirror table thead th {
+	vertical-align: bottom
+}
+#editor .ProseMirror table caption+thead tr:first-child th,
+#editor .ProseMirror table caption+thead tr:first-child td,
+#editor .ProseMirror table colgroup+thead tr:first-child th,
+#editor .ProseMirror table colgroup+thead tr:first-child td,
+#editor .ProseMirror table thead:first-child tr:first-child th,
+#editor .ProseMirror table thead:first-child tr:first-child td {
+	border-top: 0
+}
+#editor .ProseMirror table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+
+#editor .ProseMirror .task-list{
+	padding:0;
+}
+
+#editor .ProseMirror .md-task-list-item {
+	padding-left: 1.6rem;
+}
+
+#editor .ProseMirror .md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.33333333rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #fefefe;
+}
+
+#editor .ProseMirror .md-task-list-item > input:checked:before,
+#editor .ProseMirror .md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+#editor .ProseMirror .md-tag {
+	color: inherit;
+	font: inherit;
+}
+
+#editor .ProseMirror .outline-expander:before {
+	color: inherit;
+	font-size: 14px;
+	top: auto;
+	content: "\f0da";
+	font-family: FontAwesome;
+}
+
+#editor .ProseMirror .outline-expander:hover:before,
+#editor .ProseMirror .outline-item-open>.outline-item>.outline-expander:before {
+  	content: "\f0d7";
+}
+
+/** source code mode */
+
+#editor .ProseMirror .md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: calc(1rem - 12px);
+}
+
+#editor .ProseMirror .md-mathjax-midline {
+	background: #fafafa;
+}
+
+#editor .ProseMirror .milkdown-code-block .code-tooltip {
+	bottom: -2em !important;
+}
+
+#editor .ProseMirror .dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item{display:flex;align-items:baseline;gap:8px}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item > .children{flex:1;min-width:0}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item > .children > .content-dom > p,#editor .ProseMirror td > p,#editor .ProseMirror th > p{margin:0;padding:0}
+
+#editor .ProseMirror .milkdown-list-item-block .label-wrapper{align-self:flex-start;height:1.6em;min-width:20px;color:var(--muted)}
+
+#editor .ProseMirror .milkdown-code-block .tools{position:absolute;top:-28px;left:0;right:0;z-index:3;background:var(--paper);border-radius:4px}
+
+#editor .ProseMirror .milkdown-code-block .cm-editor.cm-editor{margin:0;min-height:0}
+
+#editor .ProseMirror .milkdown-code-block .cm-content,#editor .ProseMirror .milkdown-code-block .cm-scroller{font-family:inherit}
+
+#editor .ProseMirror .milkdown-code-block .cm-activeLine,#editor .ProseMirror .milkdown-code-block .cm-activeLineGutter{background:transparent}
+:root{--paper:#fefefe;--text:#333;--sidebar:#f6f6f6;--accent:#000;--code:#f8f8f8;--muted:#888;--line:#00000015;--hover:#00000008;--soft:#00000008;color-scheme:light}

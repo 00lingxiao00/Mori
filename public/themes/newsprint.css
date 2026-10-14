@@ -1,0 +1,484 @@
+/* Adapted from the user's installed Typora theme: newsprint. */
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: normal;
+	src: local('PT Serif'), local('PTSerif-Regular'), url('./newsprint/pt-serif-v11-latin-regular.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-display: swap;
+}
+/* pt-serif-italic - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: normal;
+	src: local('PT Serif Italic'), local('PTSerif-Italic'), url('./newsprint/pt-serif-v11-latin-italic.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-display: swap;
+}
+/* pt-serif-700 - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: bold;
+	src: local('PT Serif Bold'), local('PTSerif-Bold'), url('./newsprint/pt-serif-v11-latin-700.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-display: swap;
+}
+/* pt-serif-700italic - latin */
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: bold;
+	src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url('./newsprint/pt-serif-v11-latin-700italic.woff2') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-display: swap;
+}
+
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+#editor .ProseMirror pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+:root {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+:root {}
+
+#editor .ProseMirror {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', 'SF Pro', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#editor .ProseMirror {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#editor .ProseMirror {
+			max-width: 914px;
+	}
+}
+
+#editor .ProseMirror ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+#editor .ProseMirror ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+#editor .ProseMirror ol,
+#editor .ProseMirror ul {
+	list-style: none;
+}
+
+#editor .ProseMirror blockquote,
+#editor .ProseMirror q {
+	quotes: none;
+}
+#editor .ProseMirror blockquote:before,
+#editor .ProseMirror blockquote:after,
+#editor .ProseMirror q:before,
+#editor .ProseMirror q:after {
+	content: '';
+	content: none;
+}
+#editor .ProseMirror table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+#editor .ProseMirror h1,
+#editor .ProseMirror h2,
+#editor .ProseMirror h3,
+#editor .ProseMirror h4,
+#editor .ProseMirror h5,
+#editor .ProseMirror h6 {
+	font-weight: bold;
+}
+#editor .ProseMirror h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+#editor .ProseMirror h2,
+#editor .ProseMirror h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+#editor .ProseMirror h3 {
+	font-weight: normal;
+}
+#editor .ProseMirror h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+#editor .ProseMirror h5,
+#editor .ProseMirror h6 {
+	font-size: 1em;
+	/*16*/
+}
+#editor .ProseMirror h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+#editor .ProseMirror a {
+	text-decoration: none;
+	color: #065588;
+}
+#editor .ProseMirror a:hover,
+#editor .ProseMirror a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+#editor .ProseMirror p,
+#editor .ProseMirror blockquote,
+#editor .ProseMirror .milkdown-code-block {
+	margin-bottom: 1.5em;
+}
+#editor .ProseMirror h1,
+#editor .ProseMirror h2,
+#editor .ProseMirror h3,
+#editor .ProseMirror h4,
+#editor .ProseMirror h5,
+#editor .ProseMirror h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+#editor .ProseMirror blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+#editor .ProseMirror ul,
+#editor .ProseMirror ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+#editor .ProseMirror .md-before,
+#editor .ProseMirror .md-after {
+	color:#999;
+}
+
+#editor .ProseMirror table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+#editor .ProseMirror thead th,
+#editor .ProseMirror tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+#editor .ProseMirror th {
+	text-align: left;
+}
+#editor .ProseMirror td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+#editor .ProseMirror code,
+#editor .ProseMirror .milkdown-code-block {
+	background-color: #dadada;
+}
+
+#editor .ProseMirror code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#editor .ProseMirror .milkdown-code-block {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+#editor .ProseMirror pre,
+#editor .ProseMirror code,
+#editor .ProseMirror tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+#editor .ProseMirror h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+#editor .ProseMirror p + ul,
+#editor .ProseMirror p + ol{
+	margin-top: .5em;
+}
+
+#editor .ProseMirror h3 + ul,
+#editor .ProseMirror h4 + ul,
+#editor .ProseMirror h5 + ul,
+#editor .ProseMirror h6 + ul,
+#editor .ProseMirror h3 + ol,
+#editor .ProseMirror h4 + ol,
+#editor .ProseMirror h5 + ol,
+#editor .ProseMirror h6 + ol {
+	margin-top: .5em;
+}
+
+#editor .ProseMirror li > ul,
+#editor .ProseMirror li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+#editor .ProseMirror li ol>li {
+	list-style-type: lower-alpha;
+}
+
+#editor .ProseMirror li li ol>li{
+	list-style-type: lower-roman;
+}
+
+#editor .ProseMirror h2,
+#editor .ProseMirror h3 {
+	margin-bottom: .75em;
+}
+#editor .ProseMirror hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+#editor .ProseMirror h1 {
+	border-color: #c5c5c5;
+}
+#editor .ProseMirror blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+#editor .ProseMirror blockquote ul,
+#editor .ProseMirror blockquote ol {
+	margin-left:0;
+}
+
+#editor .ProseMirror .ty-table-edit {
+	background-color: transparent;
+}
+#editor .ProseMirror thead {
+	background-color: #dadada;
+}
+#editor .ProseMirror tr:nth-child(even) {
+	background: #e8e7e7;
+}
+#editor .ProseMirror hr {
+	border-color: #c5c5c5;
+}
+#editor .ProseMirror .task-list{
+	padding-left: 1rem;
+}
+
+#editor .ProseMirror .md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+#editor .ProseMirror .md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+#editor .ProseMirror .md-task-list-item > input:checked:before,
+#editor .ProseMirror .md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#editor .ProseMirror .outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+#editor .ProseMirror .outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+#editor .ProseMirror .outline-expander:hover:before,
+#editor .ProseMirror .outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+#editor .ProseMirror .modal-content {
+	background-color: #f3f2ee;
+}
+
+#editor .ProseMirror .auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+#editor .ProseMirror header,
+#editor .ProseMirror .context-menu,
+#editor .ProseMirror footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#editor .ProseMirror .long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#editor .ProseMirror .btn-default {
+	background-color: transparent;
+}
+
+#editor .ProseMirror .md-diagram-panel {
+	margin-top: 8px;
+}
+
+#editor .ProseMirror .ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+#editor .ProseMirror .file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+#editor .ProseMirror .file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+#editor .ProseMirror .md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+	-webkit-appearance: button;
+}
+
+#editor .ProseMirror input {
+	border: 1px solid #aaa;
+}
+
+#editor .ProseMirror .dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+#editor .ProseMirror .os-windows-7 strong  {
+	font-weight: 760;
+}
+
+#editor .ProseMirror .ty-preferences .btn-default {
+	background: transparent;
+}
+
+#editor .ProseMirror .ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#editor .ProseMirror .searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+#editor .ProseMirror .export-detail,
+#editor .ProseMirror .light .export-detail,
+#editor .ProseMirror .light .export-item.active,
+#editor .ProseMirror .light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item{display:flex;align-items:baseline;gap:8px}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item > .children{flex:1;min-width:0}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item > .children > .content-dom > p,#editor .ProseMirror td > p,#editor .ProseMirror th > p{margin:0;padding:0}
+
+#editor .ProseMirror .milkdown-list-item-block .label-wrapper{align-self:flex-start;height:1.6em;min-width:20px;color:var(--muted)}
+
+#editor .ProseMirror .milkdown-code-block .tools{position:absolute;top:-28px;left:0;right:0;z-index:3;background:var(--paper);border-radius:4px}
+
+#editor .ProseMirror .milkdown-code-block .cm-editor.cm-editor{margin:0;min-height:0}
+
+#editor .ProseMirror .milkdown-code-block .cm-content,#editor .ProseMirror .milkdown-code-block .cm-scroller{font-family:inherit}
+
+#editor .ProseMirror .milkdown-code-block .cm-activeLine,#editor .ProseMirror .milkdown-code-block .cm-activeLineGutter{background:transparent}
+:root{--paper:#f3f2ee;--text:#1f0909;--sidebar:#e8e7e3;--accent:#795548;--code:#dadada;--muted:#888;--line:#00000015;--hover:#00000008;--soft:#00000008;color-scheme:light}

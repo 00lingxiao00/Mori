@@ -1,0 +1,53 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249 # stable
+        with:
+          toolchain: stable
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Build frontend
+        run: |
+          npm ci
+          npm run build
+      - name: Test native code
+        run: cargo test --locked --manifest-path src-tauri/Cargo.toml
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install -r tests/requirements.txt
+          python -m playwright install webkit
+      - name: Test editor and workflows
+        shell: bash
+        run: |
+          npm run dev > "$RUNNER_TEMP/mori-vite.log" 2>&1 &
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:5173 > /dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:5173 > /dev/null
+          python tests/editor.py
+          python tests/folders.py
+          python tests/outline_layout.py
+          python tests/sample_and_selection.py --webkit
+          python tests/menu_actions.py --webkit
+          python tests/preferences.py --webkit
+          python tests/privacy.py --webkit

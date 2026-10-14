@@ -1,0 +1,8 @@
+body.privacy-masked > :not(#privacy-cover), body.privacy-masked dialog:not(#privacy-cover) { filter: blur(18px) !important; pointer-events: none !important; user-select: none !important; }
+#privacy-cover { position: fixed; inset: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: #888; outline: none; }
+#privacy-cover::backdrop { background: transparent; }
+#privacy-cover[open] { display: grid; place-items: center; }
+body[data-privacy-style="solid"] #privacy-cover { background: #f6f7f8; }
+@media (prefers-color-scheme: dark) { body[data-privacy-style="solid"] #privacy-cover { background: #242528; } }
+#privacy-cover button { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 50%; background: #8882; color: inherit; cursor: pointer; }
+#privacy-cover button:focus-visible { outline: 2px solid #888; outline-offset: 4px; }

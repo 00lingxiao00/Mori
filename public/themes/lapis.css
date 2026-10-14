@@ -1,0 +1,887 @@
+/* Adapted from the user's installed Typora theme: lapis. */
+/* 
+ *     Typora Theme - Lapis    /    Author - YiNN 
+ *     https://github.com/YiNNx/typora-theme-lapis
+ */
+
+:root {
+    --text-color: #40464f;
+    /* Text */
+    --primary-color: #4870ac;
+    /* Primary Color */
+    --bg-color: #ffffff;
+    --side-bar-bg-color: var(--bg-color);
+    /* Background */
+
+    --marker-color: #a2b6d4;
+    /* List Marker */
+    --source-color: #a8a8a9;
+    /* for comment / link source */
+    --highlight-color: #ffffb5c2;
+    /* Highlight */
+    --header-span-color: var(--primary-color);
+    /* h2 Span Color */
+    --block-bg-color: #f6f8fa;
+    /* Block Background */
+    --img-shadow-color: #e3e8f0;
+
+    /* Overwrite of Typora Base Color */
+    --search-hit-bg-color: var(--select-text-bg-color);
+    --search-select-bg-color: #5bb3ff;
+    --control-text-hover-color: #a2b6d4;
+    --rawblock-edit-panel-bd: var(--block-bg-color);
+    --item-hover-bg-color: rgb(246 248 250);
+    --active-file-bg-color: var(--block-bg-color);
+}
+
+@media print {
+    :root {
+        --text-color: rgb(0, 0, 0);
+    }
+
+    #editor .ProseMirror ::-webkit-scrollbar-thumb {
+        background-color: transparent !important;
+    }
+}
+
+/*
+ * Font-face for Cantarell, Source Han Serif CN and JetBrains Mono
+ */
+
+@font-face {
+    font-family: "Cantarell";
+    src: url('lapis/Cantarell-VF-fixed.otf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url('lapis/JetBrainsMono-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SourceHanSerifCN";
+    src: url('lapis/SourceHanSerifCN-Medium.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SourceHanSerifCN";
+    src: url('lapis/SourceHanSerifCN-Bold.ttf');
+    font-weight: bold;
+    font-display: swap;
+}
+
+/*
+ * Basic Style
+ */
+
+#editor .ProseMirror {
+    max-width: 950px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    word-spacing: 0px;
+    letter-spacing: 0px;
+    word-break: break-word;
+    word-wrap: break-word;
+    text-align: justify;
+
+    font-family: 'Cantarell', 'SourceHanSerifCN', 'JetBrainsMono';
+    margin-bottom: 20rem;
+}
+
+#editor .ProseMirror .searchpanel-search-option-btn {
+    position: absolute;
+    width: 24px;
+    height: 16px;
+    right: 5px;
+    top: 5px;
+    z-index: 99;
+    cursor: pointer;
+    margin-top: 1px;
+    padding: 1px;
+    border-radius: 3px;
+    line-height: 10px;
+    border: 1px solid #ddd;
+    border-color: var(--active-toggle-btn-color);
+}
+
+/* Strong */
+
+#editor .ProseMirror strong {
+    color: var(--primary-color);
+}
+
+/* Link */
+
+#editor .ProseMirror a {
+    color: var(--primary-color);
+    /* font-family: "Cantarell"; */
+}
+
+#editor .ProseMirror .md-p a,
+#editor .ProseMirror .md-heading a,
+#editor .ProseMirror [md-inline=url],
+#editor .ProseMirror [md-inline=link]>.md-content {
+    word-wrap: break-word;
+    text-decoration: underline solid;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}
+
+#editor .ProseMirror h2.md-heading a {
+    text-decoration: underline;
+    border-bottom: 0;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.2px;
+}
+
+#editor .ProseMirror [md-inline=link]>.md-content {
+    word-break: break-all;
+    font-weight: normal;
+    color: var(--source-color);
+    font-family: "JetBrainsMono";
+    font-size: 90%;
+}
+
+
+/* 
+ * TOC
+ */
+
+
+/* mark */
+
+#editor .ProseMirror mark {
+    background: var(--highlight-color);
+    padding: 1px .15rem;
+    border-radius: 1px;
+    color: inherit;
+}
+
+/* 
+ * Paragraph
+ */
+
+#editor .ProseMirror+p,
+#editor .ProseMirror blockquote p {
+    font-size: 1.1rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    margin: 0;
+    line-height: 1.8rem;
+    color: var(--text-color);
+}
+
+/*
+ * Header
+ */
+
+#editor .ProseMirror h4,
+#editor .ProseMirror h5,
+#editor .ProseMirror h6 {
+    font-weight: normal;
+}
+
+#editor .ProseMirror h1,
+#editor .ProseMirror h2,
+#editor .ProseMirror h3,
+#editor .ProseMirror h4,
+#editor .ProseMirror h5,
+#editor .ProseMirror h6 {
+    font-family: 'SourceHanSerifCN';
+    padding: 0px;
+    color: var(--primary-color);
+}
+
+#editor .ProseMirror h1 {
+    text-align: center;
+}
+
+#editor .ProseMirror h2 {
+    padding: 1px 12.5px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+#editor .ProseMirror h2,
+#editor .ProseMirror h2 code {
+    background-color: var(--header-span-color);
+}
+
+#editor .ProseMirror h2,
+#editor .ProseMirror h2 a,
+#editor .ProseMirror h2 code,
+#editor .ProseMirror h2 strong,
+#editor .ProseMirror h2 script {
+    color: var(--bg-color);
+}
+
+#editor .ProseMirror h2 a {
+    border-bottom-color: var(--bg-color) !important;
+}
+
+#editor .ProseMirror h1 {
+    font-size: 2rem;
+}
+
+#editor .ProseMirror h2 {
+    font-size: 1.5rem;
+}
+
+#editor .ProseMirror h3 {
+    font-size: 1.4rem;
+}
+
+#editor .ProseMirror h4 {
+    font-size: 1.2rem;
+}
+
+#editor .ProseMirror h5 {
+    font-size: 1.1rem;
+}
+
+#editor .ProseMirror h6 {
+    font-size: 1.1rem;
+}
+
+#editor .ProseMirror h1 {
+    padding-top: 0.9rem;
+    margin-bottom: 2.3rem;
+}
+
+#editor .ProseMirror h2 {
+    margin: .3em 0;
+}
+
+#editor .ProseMirror h3 {
+    margin: 1em 0 1em;
+}
+
+#editor .ProseMirror h4 {
+    margin: 0.8em 0 0.8em;
+}
+
+#editor .ProseMirror h5 {
+    margin: 0.6em 0 0.6em;
+}
+
+#editor .ProseMirror h6 {
+    margin: 0.4em 0 0.4em;
+}
+
+/*
+ * List
+ */
+
+#editor .ProseMirror ::marker {
+    font-weight: bold;
+    color: var(--marker-color);
+}
+
+#editor .ProseMirror li.md-list-item {
+    margin: 0.4rem 0;
+}
+
+#editor .ProseMirror ul,
+#editor .ProseMirror ol {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 20px;
+}
+
+#editor .ProseMirror ul {
+    list-style-type: disc;
+}
+
+#editor .ProseMirror em {
+    padding: 0 3px 0 0;
+}
+
+#editor .ProseMirror ul ul {
+    list-style-type: square;
+}
+
+#editor .ProseMirror ol {
+    list-style-type: decimal;
+}
+
+#editor .ProseMirror li section {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 1.7rem;
+    text-align: justify;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/*
+ * Quote
+ */
+
+#editor .ProseMirror blockquote {
+    display: block;
+    font-size: .9em;
+    overflow: auto;
+    border-left: 3px solid var(--primary-color);
+    padding: 15px 30px 15px 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background: var(--block-bg-color);
+}
+
+#editor .ProseMirror .md-alert {
+    display: block;
+    overflow: auto;
+    border-left: 3px solid var(--primary-color);
+    padding: 15px 30px 15px 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background: var(--block-bg-color);
+}
+
+#editor .ProseMirror .md-alert-text-container {
+    font-size: 1.2em;
+}
+
+#editor .ProseMirror .md-alert-text-important {
+    color: #614f9c;
+}
+
+#editor .ProseMirror .md-alert.md-alert-important {
+    background-color: #614f9c0a;
+    border-left-color: #614f9c;
+}
+
+#editor .ProseMirror .md-alert-text-note {
+    color: #527da8;
+}
+
+#editor .ProseMirror .md-alert.md-alert-note {
+    background-color: #527da80a;
+    border-left-color: #527da8;
+}
+
+#editor .ProseMirror .md-alert-text-tip {
+    color: #428485;
+}
+
+#editor .ProseMirror .md-alert.md-alert-tip {
+    background-color: #4284850a;
+    border-left-color: #428485;
+}
+
+#editor .ProseMirror .md-alert-text-warning {
+    color: #a88652;
+}
+
+#editor .ProseMirror .md-alert.md-alert-warning {
+    background-color: #9b80490a;
+    border-left-color: #a88652;
+}
+
+
+#editor .ProseMirror .md-alert-text-caution {
+    color: #a34f55;
+}
+
+#editor .ProseMirror .md-alert.md-alert-caution {
+    background-color: #a34f550a;
+    border-left-color: #a34f55;
+}
+
+
+/*
+ * Inline code
+ */
+
+#editor .ProseMirror code {
+    color: var(--primary-color);
+    font-size: 94%;
+    font-weight: normal;
+    word-wrap: break-word;
+    padding: 2px 4px 2px;
+    border-radius: 3px;
+    margin: 2px;
+    background-color: var(--block-bg-color);
+    font-family: 'JetBrainsMono';
+    word-break: break-all;
+}
+
+/*
+ * Img
+ */
+
+#editor .ProseMirror img {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+#editor .ProseMirror p>img:only-child {
+    filter: drop-shadow(var(--img-shadow-color) 0px 6px 6px);
+    display: block;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/*
+ * Table
+ */
+#editor .ProseMirror table {
+    display: table;
+    text-align: justify;
+    overflow-x: auto;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 1em;
+    margin: 0px 0px 20px;
+    width: 100%;
+}
+
+#editor .ProseMirror tbody {
+    border: 0;
+}
+
+#editor .ProseMirror table tr {
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+#editor .ProseMirror table tr th,
+#editor .ProseMirror table tr td {
+    font-size: 1rem;
+    border: 1px solid #d9dfe4;
+    padding: 5px 10px;
+    text-align: justify;
+}
+
+#editor .ProseMirror table tr th {
+    font-family: SourceHanSerifCN;
+    text-align: center;
+    min-width: 10rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#editor .ProseMirror table tr td:hover,
+#editor .ProseMirror table tr th:hover {
+    background-color: var(--block-bg-color);
+}
+
+#editor .ProseMirror table td {
+    min-width: 32px;
+}
+
+#editor .ProseMirror .md-table-resize-popover {
+    width: auto !important;
+}
+
+/* Footnote */
+
+#editor .ProseMirror sup.md-footnote {
+    background-color: var(--block-bg-color);
+    color: var(--primary-color);
+}
+
+#editor .ProseMirror .md-def-name {
+    color: var(--primary-color);
+}
+
+/*
+ * Math Script 
+ */
+
+#editor .ProseMirror .milkdown-latex-inline script {
+    color: var(--primary-color);
+}
+
+#editor .ProseMirror .md-rawblock-control:not(.md-rawblock-tooltip) {
+    background: var(--bg-color);
+    color: var(--md-char-color);
+}
+
+
+#editor .ProseMirror .code-tooltip {
+    box-shadow: none;
+}
+
+#editor .ProseMirror .md-rawblock-tooltip.md-rawblock-control {
+    border-radius: 1rem;
+}
+
+#editor .ProseMirror .md-rawblock .md-rawblock-tooltip {
+    inset: auto 0.3rem auto auto;
+    transform: translateY(-120%);
+}
+
+/* 
+ * Comment
+ */
+#editor .ProseMirror .md-comment {
+    color: var(--source-color);
+    opacity: 1;
+    font-family: 'JetBrainsMono';
+}
+
+/*
+ * Dividing line
+ */
+#editor .ProseMirror hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #eef2f5;
+    border-radius: 2px;
+}
+
+/* Checkbox */
+
+#editor .ProseMirror input[type=checkbox] {
+    width: 0;
+}
+
+#editor .ProseMirror .task-list-item input::before {
+    content: "";
+    display: inline-block;
+    width: 1.0125rem;
+    height: 1.0125rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid var(--marker-color);
+    border-radius: 1.2rem;
+    background-color: #fdfdfd;
+    margin-left: -0.1rem;
+    margin-right: 0.1rem;
+    margin-top: -.6rem;
+}
+
+#editor .ProseMirror .task-list-item input:checked::before {
+    content: '✓';
+    font-weight: bold;
+    -webkit-text-stroke: 1px var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    font-size: 0.75rem;
+    line-height: 0.8rem;
+}
+
+#editor .ProseMirror blockquote .task-list-item input::before {
+    margin-top: .2rem;
+}
+
+/*
+ * Sidebar
+ */
+
+.#editor .ProseMirror-for-mac #editor .ProseMirror input[type=checkbox] {
+    margin-top: 0.65rem;
+}
+
+.#editor .ProseMirror-for-mac #editor .ProseMirror .task-list-item input::before {
+    margin-top: -.85rem;
+}
+
+
+/*
+ * Sidebar - FileNode
+ */
+
+#editor .ProseMirror .file-node-content {
+    color: var(--primary-color);
+    line-height: 1.6rem;
+}
+
+#editor .ProseMirror span.file-node-title-name-part {
+    color: var(--text-color);
+}
+
+#editor .ProseMirror span.file-node-title-ext-part {
+    color: var(--text-color);
+}
+
+#editor .ProseMirror .file-node-icon {
+    padding-right: 0.2rem;
+}
+
+#editor .ProseMirror .file-tree-node.active>.file-node-background {
+    border-left: 4px solid var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/*
+ * Sidebar - Outline
+ */
+
+#editor .ProseMirror .pin-outline .outline-active {
+    color: var(--primary-color);
+}
+
+#editor .ProseMirror .outline-item {
+    padding-left: 2em;
+}
+
+#editor .ProseMirror .outline-item>.outline-expander:before {
+    transform: translateY(-1px) !important;
+}
+
+/* Meta Block */
+
+/*
+ * Scrollbar
+ */
+
+#editor .ProseMirror ::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+#editor .ProseMirror ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(179, 179, 179, 0.425);
+}
+
+#editor .ProseMirror ::-webkit-scrollbar {
+    width: 1rem;
+}
+
+/* 
+ * Code Block - Style
+ */
+
+#editor .ProseMirror .milkdown-code-block:before {
+    content: ' ';
+    display: block;
+    width: 100%;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    /* background-color: #282c34; */
+    margin-bottom: -7px;
+    border-radius: 5px;
+    background-position: 10px 10px;
+}
+
+#editor .ProseMirror .cm-editor .cm-scroller {
+    overflow-x: auto;
+}
+
+#editor .ProseMirror .milkdown-code-block .cm-editor.cm-editor {
+    margin: 1.5rem 0;
+}
+
+#editor .ProseMirror .cm-editor.cm-editor {
+    padding: 1.2rem .8rem;
+    color: #4f5467;
+    font-family: 'JetBrainsMono';
+    border-radius: 10px;
+    background-color: var(--block-bg-color);
+    /* border: 1px solid #eef2f5;*/
+    line-height: 1.6rem;
+}
+
+#editor .ProseMirror .cm-gutters {
+    border-right: 1px solid #a2b6d452;
+    background: inherit;
+    white-space: nowrap;
+}
+
+#editor .ProseMirror pre.cm-line {
+    padding: 0 1.2rem;
+}
+
+#editor .ProseMirror .cm-lineNumbers .cm-gutterElement {
+    white-space: nowrap;
+    padding: 0 3px 0 5px;
+    text-align: right;
+    color: var(--primary-color);
+}
+
+/* 
+ * Code Block - Color Scheme
+ */
+
+#editor .ProseMirror .cm-editor .tok-keyword {
+    color: #1694b6 !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-operator {
+    color: #2f86d2 !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-variableName,
+#editor .ProseMirror .cm-editor .tok-standard,
+#editor .ProseMirror .cm-editor .tok-heading,
+#editor .ProseMirror .cm-editor .tok-tag,
+#editor .ProseMirror .cm-editor .tok-property,
+#editor .ProseMirror .cm-editor .tok-quote {
+    color: #b9218e !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-variableName {
+    color: #7aadad !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-typeName,
+#editor .ProseMirror .cm-editor .cm-type,
+#editor .ProseMirror .cm-editor .tok-atom {
+    color: #378ed8 !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-number {
+    color: #1a5494 !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-definition,
+#editor .ProseMirror .cm-editor .tok-qualifier {
+    color: #0744ac !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-string {
+    color: #6f42c2 !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-string {
+    color: #27638f !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-comment {
+    color: #9a9a9a !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-meta {
+    color: #0b93be !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-attribute {
+    color: #8f6aa8 !important;
+}
+
+#editor .ProseMirror .cm-editor .tok-error {
+    color: rgba(255, 255, 255, 1) !important;
+    background-color: #b9218e40 !important;
+}
+
+#editor .ProseMirror .cm-editor .cm-editor-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+
+#editor .ProseMirror .cm-editor div.cm-editor-cursor {
+    border-left: 1px solid var(--primary-color);
+    z-index: 3;
+}
+
+#editor .ProseMirror .cm-editor div.cm-editor-selected {
+    background: rgba(167, 178, 189, 0.2) !important;
+}
+
+#editor .ProseMirror .cm-editor.cm-editor-focused div.cm-editor-selected {
+    background: rgba(167, 178, 189, 0.2) !important;
+}
+
+#editor .ProseMirror .cm-editor .cm-editor-selected,
+#editor .ProseMirror .cm-editor .cm-editor-selectedtext {
+    background-color: rgba(167, 178, 189, 0.0) !important;
+}
+
+#editor .ProseMirror .cm-editor .cm-line::-moz-selection,
+#editor .ProseMirror .cm-editor .cm-line>span::-moz-selection,
+#editor .ProseMirror .cm-editor .cm-line>span>span::-moz-selection {
+    background-color: rgba(167, 178, 189, 0.2);
+}
+
+#editor .ProseMirror .cm-editor .cm-line::selection,
+#editor .ProseMirror .cm-editor .cm-line>span::selection,
+#editor .ProseMirror .cm-editor .cm-line>span>span::selection {
+    background-color: rgba(167, 178, 189, 0.2);
+}
+
+#editor .ProseMirror .md-rawblock .md-rawblock-tooltip {
+    inset: auto 0.3rem auto auto;
+    transform: translateY(-120%);
+}
+
+/*
+ * Sitting - Unibody
+ */
+
+#editor .ProseMirror header {
+    background-color: var(--bg-color);
+    background-image: none !important;
+}
+
+#editor .ProseMirror .export-detail,
+#editor .ProseMirror .export-item.active,
+#editor .ProseMirror .export-items-list-control {
+    width: 75%;
+}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item{display:flex;align-items:baseline;gap:8px}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item > .children{flex:1;min-width:0}
+
+#editor .ProseMirror .milkdown-list-item-block > .list-item > .children > .content-dom > p,#editor .ProseMirror td > p,#editor .ProseMirror th > p{margin:0;padding:0}
+
+#editor .ProseMirror .milkdown-list-item-block .label-wrapper{align-self:flex-start;height:1.6em;min-width:20px;color:var(--muted)}
+
+#editor .ProseMirror .milkdown-code-block .tools{position:absolute;top:-28px;left:0;right:0;z-index:3;background:var(--paper);border-radius:4px}
+
+#editor .ProseMirror .milkdown-code-block .cm-editor.cm-editor{margin:0;min-height:0}
+
+#editor .ProseMirror .milkdown-code-block .cm-content,#editor .ProseMirror .milkdown-code-block .cm-scroller{font-family:inherit}
+
+#editor .ProseMirror .milkdown-code-block .cm-activeLine,#editor .ProseMirror .milkdown-code-block .cm-activeLineGutter{background:transparent}
+
+#source-editor .cm-editor .tok-keyword {
+    color: #1694b6 !important;
+}
+
+#source-editor .cm-editor .tok-operator {
+    color: #2f86d2 !important;
+}
+
+#source-editor .cm-editor .tok-variableName,#source-editor .cm-editor .tok-standard,#source-editor .cm-editor .tok-heading,#source-editor .cm-editor .tok-tag,#source-editor .cm-editor .tok-property,#source-editor .cm-editor .tok-quote {
+    color: #b9218e !important;
+}
+
+#source-editor .cm-editor .tok-variableName {
+    color: #7aadad !important;
+}
+
+#source-editor .cm-editor .tok-typeName,#source-editor .cm-editor .tok-atom {
+    color: #378ed8 !important;
+}
+
+#source-editor .cm-editor .tok-number {
+    color: #1a5494 !important;
+}
+
+#source-editor .cm-editor .tok-definition,#source-editor .cm-editor .tok-qualifier {
+    color: #0744ac !important;
+}
+
+#source-editor .cm-editor .tok-string {
+    color: #6f42c2 !important;
+}
+
+#source-editor .cm-editor .tok-string {
+    color: #27638f !important;
+}
+
+#source-editor .cm-editor .tok-comment {
+    color: #9a9a9a !important;
+}
+
+#source-editor .cm-editor .tok-meta {
+    color: #0b93be !important;
+}
+
+#source-editor .cm-editor .tok-attribute {
+    color: #8f6aa8 !important;
+}
+
+#source-editor .cm-editor .tok-error {
+    color: rgba(255, 255, 255, 1) !important;
+    background-color: #b9218e40 !important;
+}
+:root{--paper:#fff;--text:#40464f;--sidebar:#f6f8fa;--accent:#4870ac;--code:#f6f8fa;--muted:#888;--line:#00000015;--hover:#00000008;--soft:#00000008;color-scheme:light}

@@ -1,0 +1,28 @@
+# Dependencies and build products
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/schemas/
+# Local Python and test output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+playwright-report/
+test-results/
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
+# macOS / editors
+.DS_Store
+.idea/
+.vscode/
+# Distributable apps belong in GitHub Releases
+*.app/
+*.dmg
+*.zip
